@@ -7,12 +7,12 @@ public class AddressBook {
 	static Scanner scanner = new Scanner(System.in);
 	ArrayList<Contacts> person;
 
-	public AddressBook() {
+	public AddressBook() { // constructor same class name need to use
 		person = new ArrayList<Contacts>();
 
 	}
 
-	public void addperson() {
+	public Contacts addperson() {
 		System.out.println("Enter the First Name");
 		String fName = scanner.next();
 		System.out.println("Enter the Last Name");
@@ -35,11 +35,33 @@ public class AddressBook {
 
 		person.add(contacts); // adding above list to array
 		System.out.println(contacts); // printing contacts
+
+		return contacts;
+	}
+
+	public void editPerson() {
+		System.out.println("Enter name to Edit");
+		String s = scanner.next();
+		AddressBook addressBook = new AddressBook();
+
+		for (int i = 0; i < person.size(); i++) {
+			Contacts p = (Contacts) person.get(i);
+			if (s.equals(p.getFirstName())) {
+				System.out.println(p);
+				p = addressBook.addperson();/// calling add person to replace
+
+				for (int j = 0; j < person.size(); j++) {
+					person.set(j, p);
+				}
+
+			}
+		}
 	}
 
 	public static void main(String[] args) { // main
 		System.out.println("Welcome to Address Book");
 		AddressBook addressBook = new AddressBook();
 		addressBook.addperson();
+		addressBook.editPerson();
 	}
 }
