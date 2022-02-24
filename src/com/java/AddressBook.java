@@ -25,7 +25,7 @@ public class AddressBook {
 		String state = scanner.next();
 		System.out.println("Enter the Zip");
 		String zip = scanner.next();
-		System.out.println("Enter the Phone number");
+		System.out.println("Enter the Phone number ");
 		String phonenumber = scanner.next();
 		System.out.println("Enter the email");
 		String email = scanner.next();
@@ -90,26 +90,11 @@ public class AddressBook {
 
 	}
 
-	public void deletePerson() {
-		System.out.println("Enter name to delete");
-		String s = scanner.next();
-
-		for (int i = 0; i < person.size(); i++) {
-			Contacts p = (Contacts) person.get(i);
-			if (s.equals(p.getFirstName())) {
-				System.out.println(p);
-				person.remove(i);
-				System.out.println(person.isEmpty());
-			}
-		}
-
-	}
-
 	public static void main(String[] args) { // main
 		System.out.println("Welcome to Address Book");
 		AddressBook addressBook = new AddressBook();
 		addressBook.addperson();
 		addressBook.editPerson();
-		addressBook.deletePerson();
+
 	}
 }
