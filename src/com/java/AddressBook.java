@@ -91,7 +91,7 @@ public class AddressBook {
 	}
 
 	public static void main(String[] args) { // main
-		System.out.println("Welcome to Address Book");
+		System.out.println("Welcome to Address Book program");
 		AddressBook addressBook = new AddressBook();
 		addressBook.addperson();
 		addressBook.editPerson();
