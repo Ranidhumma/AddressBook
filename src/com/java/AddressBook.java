@@ -42,20 +42,52 @@ public class AddressBook {
 	public void editPerson() {
 		System.out.println("Enter name to Edit");
 		String s = scanner.next();
-		AddressBook addressBook = new AddressBook();
-
 		for (int i = 0; i < person.size(); i++) {
-			Contacts p = (Contacts) person.get(i);
+			Contacts p = person.get(i);
 			if (s.equals(p.getFirstName())) {
-				System.out.println(p);
-				p = addressBook.addperson();/// calling add person to replace
+				while (true) {
+					System.out.println("Enter choice to edit 1)firstName\n2)lastName\n3)address\n"
+							+ "4)city\n5)state\n6)zip\n7)phoneNumber\n8)email9)exit");
+					int choice = scanner.nextInt();
+					switch (choice) {
+					case 1:
+						p.setFirstName(scanner.next());
+						break;
+					case 2:
+						p.setLastName(scanner.next());
+						break;
+					case 3:
+						p.setAddress(scanner.next());
+						break;
+					case 4:
+						p.setCity(scanner.next());
+						break;
+					case 5:
+						p.setState(scanner.next());
+						break;
+					case 6:
+						p.setZip(scanner.next());
+						break;
+					case 7:
+						p.setPhoneNumber(scanner.next());
+						break;
+					case 8:
+						p.setEmail(scanner.next());
+						break;
+					default:
+						System.out.println("select correct choice");
+						break;
+					}
+					if (choice == 9)
+						break;
+				} // end while loop
+				person.set(i, p);
+				System.out.println("person after editing");
+				System.out.println(person);
 
-				for (int j = 0; j < person.size(); j++) {
-					person.set(j, p);
-				}
-				System.out.println("Contacts");
 			}
 		}
+
 	}
 
 	public void deletePerson() {
