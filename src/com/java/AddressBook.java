@@ -40,7 +40,7 @@ public class AddressBook {
 	}
 
 	public void editPerson() {
-		System.out.println("Enter name to Edit");
+		System.out.println("Enter name to Edit ");
 		String s = scanner.next();
 		for (int i = 0; i < person.size(); i++) {
 			Contacts p = person.get(i);
@@ -108,12 +108,28 @@ public class AddressBook {
 		}
 	}
 
+	public void addingMultiplePerson() {
+		while (true) {
+
+			System.out.println("Enter option \n 1)Add Contacts\n 2)edit contacts\n 3)delete contacts\n 4)exit\n");
+			int option = scanner.nextInt();
+			switch (option) {
+			case 1 -> addperson(); // in switch case we are calling addperson/editperson/deleteperson for
+			case 2 -> editPerson();
+			case 3 -> deletePerson();
+			case 4 -> System.out.println("Exit"); // we are req exit to come out of loop
+			default -> System.out.println("Invalid"); // other number if you enter you will get invalid option
+			}
+
+			if (option == 4) // exit
+				break;
+		}
+	}
+
 	public static void main(String[] args) { // main
 		System.out.println("Welcome to Address Book program");
 		AddressBook addressBook = new AddressBook();
-		addressBook.addperson();
-		addressBook.editPerson();
-		addressBook.deletePerson();
+		addressBook.addingMultiplePerson();
 
 	}
 }
