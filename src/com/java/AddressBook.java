@@ -80,7 +80,7 @@ public class AddressBook {
 					}
 					if (choice == 9)
 						break;
-				} // end while loop
+				} // here closing while loop
 				person.set(i, p);
 				System.out.println("person after editing");
 				System.out.println(person);
@@ -90,11 +90,30 @@ public class AddressBook {
 
 	}
 
+	public void deletePerson() {
+
+		System.out.println("Enter the name to delete");
+		String s = scanner.next();
+		for (int i = 0; i < person.size(); i++) {
+			Contacts p = person.get(i);
+			if (s.equals(p.getFirstName())) {
+				person.remove(i);
+			}
+		}
+		System.out.println("Contact after deletion");
+		if (person.isEmpty() != true)
+			System.out.println(person);
+		else {
+			System.out.println("Deleted contact sucesfully");
+		}
+	}
+
 	public static void main(String[] args) { // main
 		System.out.println("Welcome to Address Book program");
 		AddressBook addressBook = new AddressBook();
 		addressBook.addperson();
 		addressBook.editPerson();
+		addressBook.deletePerson();
 
 	}
 }
